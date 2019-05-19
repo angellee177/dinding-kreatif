@@ -16,6 +16,19 @@
       <li><%= msg %></li>
       </ul>
   <% end %>
+  <div class="article-meta-details">
+      <%# untuk mengecek apakah user sudah login atau belum %>
+        <% if current_user %>
+        Hi <%= current_user.name %>
+        |
+        <%= link_to 'logout', method: :destroy %>
+      <% else %>
+        <%= link_to 'login', login_path %>
+        |
+        <%= link_to 'signup'%>
+      <% end %>
+    </header>
     <%= yield %>
+  </div>
   </body>
 </html>
